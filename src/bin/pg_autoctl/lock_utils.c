@@ -27,7 +27,7 @@
 /*
  * See man semctl(2)
  */
-#if defined(__linux__)
+#if defined(__linux__) || defined(__illumos__)
 union semun
 {
 	int val;
