@@ -7,7 +7,7 @@
  *
  */
 
-#if defined(__linux__)
+#if defined(__linux__) || defined(__illumos__)
 #include <sys/sysinfo.h>
 #else
 #include <sys/types.h>
