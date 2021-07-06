@@ -1608,7 +1608,7 @@ pg_log_startup(const char *pgdata, int logLevel)
 		struct stat pgLogFileStat;
 
 		/* our logFiles are regular files, skip . and .. and others */
-		if ((pgLogFileStat.st_mode & S_IFMT) == S_IFDIR)
+		if ((pgLogFileStat.st_mode & S_IFMT) != S_IFREG)
 		{
 			continue;
 		}
