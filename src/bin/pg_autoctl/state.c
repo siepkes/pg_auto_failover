@@ -603,7 +603,11 @@ epoch_to_string(uint64_t seconds, char *buffer)
 		strlcpy(buffer, "0", MAXCTIMESIZE);
 		return buffer;
 	}
+#if defined(__illumos__)
+	char *result = ctime_r((time_t *) &seconds, buffer, MAXCTIMESIZE);
+#else
 	char *result = ctime_r((time_t *) &seconds, buffer);
+#endif
 
 	if (result == NULL)
 	{
