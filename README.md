@@ -1,3 +1,15 @@
+# Building pg_auto_failover on SmartOS
+
+These instructions assume you are building in VM based on a `base-64-lts` image version `20.4.0`.
+
+```
+# pkgin install postgresql13
+# git clone git@github.com:siepkes/pg_auto_failover.git
+# cd pg_auto_failover.git
+# git checkout v1.5.2-smartos
+# LDFLAGS="-fstack-protector" CFLAGS="-D__EXTENSIONS__ -D__illumos__=1" make
+```
+
 # pg_auto_failover
 
 [![Slack Status](http://slack.citusdata.com/badge.svg)](https://slack.citusdata.com)
